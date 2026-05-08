@@ -10,7 +10,7 @@ import { User2Icon } from "lucide-react";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "Products", href: "/products" },
-  { label: "Contact", href: "/contact" },
+  // { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -64,12 +64,12 @@ const Navbar = () => {
             </SignInButton>
           ) :(
             <>
-              <Link href="/dashboard">
-                 <button className="bg-gray-900 text-white text-sm font-semibold px-4 py-1.5 rounded-xl hover:bg-gray-700 transition-all duration-200 cursor-pointer">
+              <Link href="/products">
+                 <button className="bg-gray-900 text-white text-sm font-semibold px-4 py-1 rounded-xl hover:bg-gray-700 transition-all duration-200 cursor-pointer ">
            Place order →
          </button>  
               </Link>
-              <UserButton />
+              {/* <UserButton /> */}
             </>
           )}
         
