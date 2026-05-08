@@ -8,12 +8,13 @@ import Navbar from "./Navbar";
 
 const flavors = [
   {
-    name: "cherry",
-    word: "JUICY",
+    name: "cucumber",
+    first: "cu",
+    last:"cu",
     bg: "#3daa57",
     title: "THE GREEN ESSENCE",
     tagline: "FRESH. PURE. ALIVE.",
-    img: "/bottles/cherry.png",
+    img: "/heroimg3.png",
     ingredients: [
       { icon: "🥒", name: "Cucumber" },
       { icon: "🌿", name: "Celery" },
@@ -23,11 +24,12 @@ const flavors = [
   },
   {
     name: "chocolate",
-    word: "Dark",
+    first: "Da",
+    last:"rk",
     bg: "#8B3A0F",
     title: "THE CHOCOLATE ESSENCE",
     tagline: "TASTE. INDULGE. REPEAT.",
-    img: "/heroimg1.png",
+    img: "/heroimg5.png",
     ingredients: [
       { icon: "🍊", name: "Citrus Fruits" },
       { icon: "🍍", name: "Pineapple" },
@@ -37,12 +39,13 @@ const flavors = [
     ],
   },
   {
-    name: "rainbow",
-    word: "BERRY",
+    name: "berry",
+    first: "Be",
+    last:"rry",
     bg: "#d9255e",
     title: "THE BERRY ESSENCE",
     tagline: "BOLD. BRIGHT. BERRY.",
-    img: "/bottles/rainbow.png",
+    img: "/heroimg4.png",
     ingredients: [
       { icon: "🍓", name: "Berry" },
       { icon: "🍋", name: "Lemon" },
@@ -203,7 +206,7 @@ export default function Hero() {
         <img
           src={f.img}
           alt={f.name}
-          className="h-full w-auto object-contain -translate-x-1/2 ml-10 mb-4
+          className=" relative h-full w-auto object-contain -translate-x-1/2 ml-[100%]
             max-h-[340px] sm:max-h-[420px] md:max-h-[520px] lg:max-h-[640px]"
           style={{ filter: "drop-shadow(0 20px 50px rgba(0,0,0,0.4))" }}
         />
@@ -212,12 +215,18 @@ export default function Hero() {
       {/* Big background word */}
       <div
         ref={wordRef}
-        className="absolute bottom-2 left-1/2 -translate-x-1/2 z-[5]
+        className="absolute bottom-[20%] left-1/2 -translate-x-1/2  z-[5]
           font-[Bebas_Neue] text-white/88 tracking-[6px] whitespace-nowrap
           pointer-events-none leading-none"
         style={{ fontSize: "clamp(70px, 18vw, 200px)" }}
       >
-        {f.word}
+        <div className=" absolute bottom-[20%] -right-70  flex items-center justify-between lg:gap-20   ">
+          <h1 className="mr-2">{f.first} </h1>
+          <h1 className="md:mr-4">{f.last} </h1>
+
+
+
+        </div>
       </div>
 
       {/* ── Right: Size Selector ── */}
@@ -291,7 +300,7 @@ export default function Hero() {
       {/* ── Socials ── */}
       <div className="absolute bottom-5 left-6 flex items-center gap-4 z-30 hidden sm:flex">
         <div className="w-6 h-6 bg-white/15 rounded-md flex items-center justify-center text-[10px] font-bold text-white">N</div>
-        {["FB", "BE", "IG", "X"].map((s) => (
+        {["FB", "BE", "In", "X"].map((s) => (
           <span key={s} className="text-[11px] text-white/50 hover:text-white cursor-pointer font-semibold transition-colors">
             {s}
           </span>

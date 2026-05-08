@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react"; 
-import { useUser } from "@clerk/nextjs";
+import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { User2Icon } from "lucide-react";
 
@@ -56,13 +56,24 @@ const Navbar = () => {
 
         {/* CTA */}
         {!user? 
-             <Button className="  bg-green-600 text-white  font-semibold px-4 py-4 rounded-xl hover:bg-gray-600 transition-all duration-200 cursor-pointer gap-2"> 
-      <User2Icon className="h-10 w-10 shrink-0" />
-        sign-IN</Button> :
-        <button className="bg-gray-900 text-white text-sm font-semibold px-4 py-1.5 rounded-xl hover:bg-gray-700 transition-all duration-200 cursor-pointer">
-          Place order →
-        </button> 
-      }
+      (
+            <SignInButton mode="modal">
+             <button className="bg-white/40 backdrop-blur-md text-black shadow-2xl text-sm font-semibold px-4 py-1.5 rounded-xl hover:bg-green-400 transition-all duration-200 cursor-pointer">
+              Sign-IN
+              </button>
+            </SignInButton>
+          ) :(
+            <>
+              <Link href="/dashboard">
+                 <button className="bg-gray-900 text-white text-sm font-semibold px-4 py-1.5 rounded-xl hover:bg-gray-700 transition-all duration-200 cursor-pointer">
+           Place order →
+         </button>  
+              </Link>
+              <UserButton />
+            </>
+          )}
+        
+      
       
 
       </div>
